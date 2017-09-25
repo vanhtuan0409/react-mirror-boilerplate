@@ -1,6 +1,6 @@
 import React from "react";
 import mirror from "mirrorx";
-import { render } from "mirrorx";
+import { render, Router } from "mirrorx";
 import { reducer as formReducer } from "redux-form";
 
 import "./modules";
@@ -8,6 +8,7 @@ import "./responsive";
 import "./index.css";
 import registerServiceWorker from "./registerServiceWorker";
 
+import LanguageProvider from "./containers/LanguageProvider";
 import Routes from "./routes";
 
 mirror.defaults({
@@ -16,5 +17,12 @@ mirror.defaults({
   }
 });
 
-render(<Routes />, document.getElementById("root"));
+render(
+  <Router>
+    <LanguageProvider>
+      <Routes />
+    </LanguageProvider>
+  </Router>,
+  document.getElementById("root")
+);
 registerServiceWorker();

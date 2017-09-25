@@ -8,7 +8,7 @@ mirror.model({
   },
   reducers: {
     setScreen(state, screen) {
-      return Object.assign({}, state, { screen });
+      return { screen };
     }
   }
 });
