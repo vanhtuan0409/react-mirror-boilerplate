@@ -1,0 +1,12 @@
+[
+  {
+    "id": "containers.AboutPage.aboutpage",
+    "defaultMessage": "About Page",
+    "filepath": "src/containers/AboutPage/message.js"
+  },
+  {
+    "id": "containers.HomePage.homepage",
+    "defaultMessage": "Home Page",
+    "filepath": "src/containers/HomePage/messages.js"
+  }
+]

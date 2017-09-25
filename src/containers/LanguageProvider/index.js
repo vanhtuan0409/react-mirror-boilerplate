@@ -4,11 +4,16 @@ import { IntlProvider } from "react-intl";
 
 class LanguageProvider extends PureComponent {
   render() {
-    const { selectedLanguage, children } = this.props;
-    return <IntlProvider locale={selectedLanguage}>{children}</IntlProvider>;
+    const { locale, messages, children } = this.props;
+    const selectedMessage = messages[locale];
+    return (
+      <IntlProvider key={locale} locale={locale} messages={selectedMessage}>
+        {children}
+      </IntlProvider>
+    );
   }
 }
 
 export default connect(state => ({
-  selectedLanguage: state.language.selected
+  locale: state.language.selected
 }))(LanguageProvider);

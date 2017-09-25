@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { NavLink, actions, connect } from "mirrorx";
+import { NavLink, actions } from "mirrorx";
 import withAuth from "@src/utils/withAuth";
-import { ENGLISH_LANGUAGE, VIETNAMESE_LANGUAGE } from "@src/i18n";
+import LanguageToggle from "@src/containers/LanguageToggle";
 import "./Header.css";
 
 class Header extends Component {
@@ -10,7 +10,7 @@ class Header extends Component {
   }
 
   render() {
-    const { selectedLanguage, auth } = this.props;
+    const { auth } = this.props;
     const user = auth.getSession();
 
     return (
@@ -31,18 +31,11 @@ class Header extends Component {
             </NavLink>
           </li>
         </ul>
-        <select value={selectedLanguage} onChange={this.onChangeLanguage}>
-          <option value={ENGLISH_LANGUAGE}>English</option>
-          <option value={VIETNAMESE_LANGUAGE}>Vietnamese</option>
-        </select>
+        <LanguageToggle />
         <hr />
       </header>
     );
   }
 }
 
-export default withAuth(
-  connect(state => ({
-    selectedLanguage: state.language.selected
-  }))(Header)
-);
+export default withAuth(Header);

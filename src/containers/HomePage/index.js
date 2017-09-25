@@ -1,8 +1,14 @@
 import React, { Component } from "react";
+import { FormattedMessage } from "react-intl";
+import messages from "./messages";
 
 class HomePage extends Component {
   render() {
-    return <div>Home page</div>;
+    return (
+      <div>
+        <FormattedMessage {...messages.homepage} />
+      </div>
+    );
   }
 }
 

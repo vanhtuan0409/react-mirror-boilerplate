@@ -5,6 +5,7 @@ import { reducer as formReducer } from "redux-form";
 
 import "./modules";
 import "./responsive";
+import { translationMessages } from "./i18n";
 import "./index.css";
 import registerServiceWorker from "./registerServiceWorker";
 
@@ -19,7 +20,7 @@ mirror.defaults({
 
 render(
   <Router>
-    <LanguageProvider>
+    <LanguageProvider messages={translationMessages}>
       <Routes />
     </LanguageProvider>
   </Router>,
